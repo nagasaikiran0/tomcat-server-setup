@@ -1,0 +1,33 @@
+dlcdn.apache.org
+search tomcat
+tomcat 9
+v -9
+go to bin
+copy link address of "apache-tomcat-9.0.68.tar.gz "  ----------> https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.68/bin/apache-tomcat-9.0.68.tar.gz
+go to server ec2 
+wget paste the copy link ---------> https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.68/bin/apache-tomcat-9.0.68.tar.gz
+tar -zxvf apache-tomcat-9.0.68
+mv apache-tomcat-9.0.68 tomcat
+cd tomcat
+ls
+cd wehapps --> cd manager --> cd META-INF ---> ll (context.xml)
+vim context.xml ------>  delete <volve ,,,,,, 
+                                      ......         delete 2 lines and save
+                                      go to back again tomcat 
+cd tomcat
+cd conf
+ls ---->  tomcat-users.xml ----->  vim tomcat-users.xml
+copy this 
+  <role rolename="manger-gui"/>
+  <role rolename="manger-script"/>
+  <user username="tomcat" password="tomcat" roles="manager-gui,manager-script"/>
+  </tomcat-users>
+  save and go back 
+  go to cd tomcat
+  ls ----> bin
+  cd bin
+ ls ------ startup.sh
+ ./startup.sh
+ the message will come like ------------TOMCAT STARTED-----------
+ if it is not come then some thing wrong we did in the tomcat setup process
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
